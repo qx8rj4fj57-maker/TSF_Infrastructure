@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Handles Hoops</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Boston Red Sox: Navy #0C2340, Red #BD3039, White #FFFFFF */
+  :root {
+    --navy:   #0C2340;
+    --red:    #BD3039;
+    --white:  #FFFFFF;
+    --offwhite: #F2F4F7;
+    --muted:  #8A9BB5;
+    --border: #1A3560;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html, body {
+    width:100%; min-height:100%;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* subtle texture */
+  body::before {
+    content:'';
+    position:fixed; inset:0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(189,48,57,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.03) 0%, transparent 50%);
+    pointer-events:none;
+  }
+
+  .page {
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    text-align:center;
+    padding: 60px 24px 48px;
+    min-height:100vh;
+    position:relative; z-index:1;
+  }
+
+  /* ── LOGO ── */
+  .logo-wrap { margin-bottom: 36px; }
+
+  .logo-svg { width:120px; height:120px; }
+
+  /* ── WORDMARK ── */
+  .wordmark {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    letter-spacing: .08em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .wordmark .h { color: var(--white); }
+  .wordmark .amp { color: var(--red); font-size: 36px; margin: 0 2px; }
+
+  .tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 48px;
+  }
+
+  /* ── DIVIDER ── */
+  .rule {
+    width: 48px; height: 2px;
+    background: var(--red);
+    border-radius: 1px;
+    margin-bottom: 48px;
+  }
+
+  /* ── CONTACT ── */
+  .contact { display:flex; flex-direction:column; gap:14px; width:100%; max-width:340px; }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--white);
+    transition: all .2s;
+    position: relative; overflow: hidden;
+  }
+
+  .contact-item::before {
+    content:'';
+    position:absolute; top:0; left:0;
+    width:3px; height:100%;
+    background: var(--red);
+    opacity:0; transition:opacity .2s;
+  }
+
+  .contact-item:hover {
+    background: rgba(189,48,57,0.08);
+    border-color: rgba(189,48,57,0.3);
+    transform: translateY(-1px);
+  }
+
+  .contact-item:hover::before { opacity:1; }
+
+  .contact-icon { font-size:16px; flex-shrink:0; opacity:.7; }
+
+  .contact-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    letter-spacing: .04em;
+    color: var(--offwhite);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 52px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.15);
+  }
+
+  @media (max-width:480px) {
+    .wordmark { font-size:38px; }
+    .logo-svg { width:96px; height:96px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- LOGO -->
+  <div class="logo-wrap">
+    <svg class="logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer ring -->
+      <circle cx="60" cy="60" r="56" fill="none" stroke="#1A3560" stroke-width="2"/>
+      <!-- Inner ring accent -->
+      <circle cx="60" cy="60" r="50" fill="none" stroke="#BD3039" stroke-width="1" opacity="0.4"/>
+
+      <!-- H2 text mark -->
+      <!-- First H -->
+      <text x="12" y="82"
+        font-family="Arial Black, Arial, sans-serif"
+        font-weight="900"
+        font-size="62"
+        fill="#FFFFFF"
+        letter-spacing="-2">H</text>
+
+      <!-- Second H -->
+      <text x="52" y="82"
+        font-family="Arial Black, Arial, sans-serif"
+        font-weight="900"
+        font-size="62"
+        fill="#BD3039"
+        letter-spacing="-2">H</text>
+
+      <!-- Superscript 2 -->
+      <text x="100" y="46"
+        font-family="Arial Black, Arial, sans-serif"
+        font-weight="900"
+        font-size="26"
+        fill="#BD3039">2</text>
+
+      <!-- Basketball seam lines over the logo -->
+      <path d="M60 4 Q80 30 80 60 Q80 90 60 116" fill="none" stroke="#BD3039" stroke-width="1" opacity="0.25"/>
+      <path d="M4 60 Q30 40 60 40 Q90 40 116 60" fill="none" stroke="#BD3039" stroke-width="1" opacity="0.25"/>
+    </svg>
+  </div>
+
+  <!-- WORDMARK -->
+  <div class="wordmark">
+    <span class="h">HANDLES</span>
+    <span class="amp"> · </span>
+    <span class="h">HOOPS</span>
+  </div>
+
+  <div class="tagline">handleshoops.com</div>
+
+  <div class="rule"></div>
+
+  <!-- CONTACT -->
+  <div class="contact">
+    <a class="contact-item" href="mailto:info@handleshoops.com">
+      <span class="contact-icon">✉</span>
+      <span class="contact-text">info@handleshoops.com</span>
+    </a>
+    <a class="contact-item" href="tel:4109266724">
+      <span class="contact-icon">📞</span>
+      <span class="contact-text">410-926-6724</span>
+    </a>
+  </div>
+
+  <div class="footer">© 2026 Handles Hoops</div>
+
+</div>
+</body>
+</html>
